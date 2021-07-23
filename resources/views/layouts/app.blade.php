@@ -26,7 +26,9 @@
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
             </a>
-            <a href="{{route('my_posts')}}" class="navbar-brand"><b>My Posts</b></a>
+            @auth()
+                <a href="{{route('my_posts')}}" class="navbar-brand"><b>My Posts</b></a>
+            @endauth
             <a href="{{route('posts')}}" class="navbar-brand"><b>All Posts</b></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"

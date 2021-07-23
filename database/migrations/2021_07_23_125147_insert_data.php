@@ -1,5 +1,6 @@
 <?php
 
+use App\Comment;
 use App\Post;
 use App\User;
 use Illuminate\Database\Migrations\Migration;
@@ -39,7 +40,21 @@ class InsertData extends Migration
                 $u_id = 2;
         }
 
+        $u_id = 1;
+        for ($i = 0; $i < 100; $i++) {
 
+            $comment = new Comment();
+            $comment->user_id = $u_id;
+            $comment->post_id = rand(1, 10);
+            $comment->body = Str::random(25);
+            $comment->save();
+
+            if ($i % 2 == 0)
+                $u_id = 2;
+            else {
+                $u_id = 1;
+            }
+        }
     }
 
     /**

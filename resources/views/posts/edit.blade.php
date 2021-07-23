@@ -31,14 +31,14 @@
         </button>
         <a href="{{route('posts')}}"
            class="bg-gray-500 tracking-wide text-white px-6 py-2 inline-block mb-6 shadow-lg rounded hover:shadow">Cancel</a>
-        <form method="POST" action="{{route('delete_post',$post->id)}}">
-            @method("DELETE")
-            @csrf
-            <button
-                class="bg-red-500 tracking-wide text-white px-6 py-2 inline-block mb-6 shadow-lg rounded hover:shadow">
-                Delete
-            </button>
-        </form>
+    </form>
+    <form method="POST" action="{{route('delete_post',$post->id)}}">
+        @method("DELETE")
+        @csrf
+        <button
+            class="bg-red-500 tracking-wide text-white px-6 py-2 inline-block mb-6 shadow-lg rounded hover:shadow">
+            Delete
+        </button>
     </form>
 </div>
 

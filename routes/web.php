@@ -11,6 +11,7 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -31,14 +32,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/posts/{post}/edit', 'PostController@edit')->name('edit_post');
     Route::get('/MyPosts', 'PostController@showMyPosts')->name('my_posts');
     Route::get('/posts/{post}/view', 'PostController@viewPost')->name('view_post');
-    //store comment
+
     Route::post('/posts/{post}/store', 'CommentController@store')->name('store_comment');
     Route::get('/comment/{comment}/edit', 'CommentController@edit')->name('edit_comment');
     Route::put('/comment/{comment}/', 'CommentController@update')->name('update_comment');
     Route::delete('/post/{comment}/delete', 'CommentController@destroy')->name('delete_comment');
-});
-
-/* Test */
-Route::get('/sss', function () {
-    return view('posts.index');
 });

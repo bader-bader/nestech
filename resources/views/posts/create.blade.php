@@ -27,7 +27,9 @@
     text-sm focus:outline-none focus focus:border-gray-400 focus:ring-0" id="body"
                       name="body"></textarea>
         </div>
-        <button class="bg-blue-500 tracking-wide text-white px-6 py-2 inline-block mb-6 shadow-lg rounded hover:shadow">Create</button>
+        <button class="bg-blue-500 tracking-wide text-white px-6 py-2 inline-block mb-6 shadow-lg rounded hover:shadow">
+            Create
+        </button>
 
     </form>
 </div>
