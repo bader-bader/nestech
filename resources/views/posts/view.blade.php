@@ -26,7 +26,7 @@
     <br>
     <div class="comments">
         @foreach($post->comments as $comment)
-            <p style="border: 1px solid #713131;padding: 10px;max-width: min-content;display: inline-block ">
+            <p style="border: 1px solid #713131;padding: 10px;display: inline-block ">
                 <b>{{$comment->body}}</b>
             </p>
             @can('delete',$comment)

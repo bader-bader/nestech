@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +13,24 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::post('/login', 'Api\UserApiAuthController@login');
+Route::post('/register', 'Api\UserApiAuthController@register');
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::get('/logout', 'Api\UserApiAuthController@logout');
+    /**
+     * post api controller
+     */
+    Route::get('allPosts/', 'Api\ApiPostController@index');
+    Route::post('createPost/', 'Api\ApiPostController@store');
+    Route::post('updatePost/{id}', 'Api\ApiPostController@update');
+    Route::get('deletePost/{id}', 'Api\ApiPostController@destroy');
+    Route::get('showMyPosts/', 'Api\ApiPostController@showMyPosts');
+
+    /**
+     * comment api controller
+     */
+    Route::post('createComment/{post_id}', 'Api\ApiCommentController@store');
+    Route::post('updateComment/{comment_id}', 'Api\ApiCommentController@update');
+    Route::get('deleteComment/{comment_id}', 'Api\ApiCommentController@destroy');
 });

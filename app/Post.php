@@ -24,4 +24,9 @@ class Post extends Model
     {
         return self::all()->where('user_id', $id)->sortByDesc('id');
     }
+
+    public static function getPostById($id)
+    {
+        return Post::find($id);
+    }
 }
